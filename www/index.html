@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
+            https://cordova.apache.org/docs/en/latest/
+        Some notes:
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+		<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; img-src 'self' data:; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/index.css">
+		<link rel="stylesheet" type="text/css" href="js/jquery-1.5.0.mobile.min.css">
+		<style>
+		/* For avoiding title truncation in wp8 */
+		.ui-header .ui-title {
+				overflow: visible !important;
+		}
+		/* For fixing the absolute position issue for the default cordova gen page*/
+		#cjp-accordion1 .app {
+				left: 5px !important;
+				margin: 5px !important;
+				position: relative !important;
+		}
+		</style>
+        <title>Find Me</title>
+    </head>
+
+    <body>		<!-- page 1 -->
+		<div data-role="page" id="page1" style="background-color: #e5ca9f;">
+			<div data-role="header">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#page1" class="ui-btn-active ui-state-persist ui-btn ui-corner-all ui-btn-icon-left ui-icon-home">Начало</a></li>
+						<li><a href="#page2" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-check" style="background-color: #665A46; color: white;">Намерени</a></li>
+						<li><a href="#page3" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-search" style="background-color: #665A46; color: white;">Изгубени</a></li>
+						<li><a href="#page4" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-plus" style="background-color: #665A46; color: white;">Добави</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div>
+			
+			<div class="ui-content" id="first">
+				<img src="img/search.png" alt="Find Me" class="img-fluid" style="width: 100%; height: auto;">
+				<hr>
+				<a href="#page2" class="btn" style="color: #422800; margin-bottom: 3%;">Намерено</a>
+				<a href="#page3" class="btn" style="color: #422800;">Изгубено</a>
+			</div><!-- end page 1 content -->
+			
+			<div data-role="footer" data-position="fixed" style="background-color: #665A46; color: white;">
+				<h1>Начало</h1>
+			</div><!-- /footer -->
+		</div>
+		<!-- /page1 -->
+
+				<!-- page 2 -->
+		<div data-role="page" id="page2" style="background-color: #e5ca9f;">
+			<div data-role="header">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#page1" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-home" style="background-color: #665A46; color: white;">Начало</a></li>
+						<li><a href="#page2" class="ui-btn-active ui-state-persist ui-btn ui-corner-all ui-btn-icon-left ui-icon-check">Намерени</a></li>
+						<li><a href="#page3" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-search" style="background-color: #665A46; color: white;">Изгубени</a></li>
+						<li><a href="#page4" class="ui-btnui-corner-all ui-btn-icon-left ui-icon-plus" style="background-color: #665A46; color: white;">Добави</a></li>
+					</ul>
+				</div><!-- /navbar -->	
+			</div>
+			
+			<div class="ui-content" >
+				<div id="pages2">					
+					
+					<div>
+						<div class="wrap animate pop">
+							<div class="overlay">
+								<div class="overlay-content animate slide-left delay-2">
+									<p class="animate slide-left pop delay-5" style="color: white; margin-bottom: 2.5rem;"></p>
+								</div>
+			
+								<img src="img/bob.jpg" class="find-picture animate slide delay-5" />
+								<div class="dots animate">
+									<div class="dot animate slide-up delay-6"></div>
+									<div class="dot animate slide-up delay-7"></div>
+									<div class="dot animate slide-up delay-8"></div>
+								</div>
+							</div>
+							<div class="text">
+								<p>
+									<b>Име:</b>
+									<i>Драган Петров</i>
+									<br>
+									<b>Тел. номер:</b>
+									<i>0864245731</i>
+									<br>
+									<b>Описание:</b>
+									<i>Намерено куче до Пантеона днес в 15:30 ч. Има медальонче с име Боб. Ако някой го разпознае, моля да звънне на посочения номер.</i>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="wrap animate pop">
+							<div class="overlay">
+								<div class="overlay-content animate slide-left delay-2">
+									<p class="animate slide-left pop delay-5" style="color: white; margin-bottom: 2.5rem;"></p>
+								</div>
+			
+								<img src="img/iphone.jpg" class="find-picture animate slide delay-5" />
+								<div class="dots animate">
+									<div class="dot animate slide-up delay-6"></div>
+									<div class="dot animate slide-up delay-7"></div>
+									<div class="dot animate slide-up delay-8"></div>
+								</div>
+							</div>
+							<div class="text">
+								<p>
+									<b>Име:</b>
+									<i>Петър Атанасов</i>
+									<br>
+									<b>Тел. номер:</b>
+									<i>0886432191</i>
+									<br>
+									<b>Описание:</b>
+									<i>Намерен телефон в "Младост 1", бл. 113А.</i>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="wrap animate pop">
+							<div class="overlay">
+								<div class="overlay-content animate slide-left delay-2">
+									<p class="animate slide-left pop delay-5" style="color: white; margin-bottom: 2.5rem;"></p>
+								</div>
+			
+								<img src="img/keys.jpg" class="find-picture animate slide delay-5" />
+								<div class="dots animate">
+									<div class="dot animate slide-up delay-6"></div>
+									<div class="dot animate slide-up delay-7"></div>
+									<div class="dot animate slide-up delay-8"></div>
+								</div>
+							</div>
+							<div class="text">
+								<p>
+									<b>Име:</b>
+									<i>Иванка Стратиева</i>
+									<br>
+									<b>Тел. номер:</b>
+									<i>0873450276</i>
+									<br>
+									<b>Описание:</b>
+									<i>Намерени ключове до МакДрайв, оставени на касата вътре.</i>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="wrap animate pop">
+							<div class="overlay">
+								<div class="overlay-content animate slide-left delay-2">
+									<p class="animate slide-left pop delay-5" style="color: white; margin-bottom: 2.5rem;"></p>
+								</div>
+			
+								<img src="img/rex.jpg" class="find-picture animate slide delay-5" />
+								<div class="dots animate">
+									<div class="dot animate slide-up delay-6"></div>
+									<div class="dot animate slide-up delay-7"></div>
+									<div class="dot animate slide-up delay-8"></div>
+								</div>
+							</div>
+							<div class="text">
+								<p>
+									<b>Име:</b>
+									<i>Галин Галинов</i>
+									<br>
+									<b>Тел. номер:</b>
+									<i>0887510375</i>
+									<br>
+									<b>Описание:</b>
+									<i>Намерено куче с неизяснена порода в 17:50ч. Няма каишка с име. Кучето е намерено до Кауфланд Варна Одесос.</i>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="wrap animate pop">
+							<div class="overlay">
+								<div class="overlay-content animate slide-left delay-2">
+									<p class="animate slide-left pop delay-5" style="color: white; margin-bottom: 2.5rem;"></p>
+								</div>
+			
+								<img src="img/wallet2.jpg" class="find-picture animate slide delay-5" />
+								<div class="dots animate">
+									<div class="dot animate slide-up delay-6"></div>
+									<div class="dot animate slide-up delay-7"></div>
+									<div class="dot animate slide-up delay-8"></div>
+								</div>
+							</div>
+							<div class="text">
+								<p>
+									<b>Име:</b>
+									<i>Емилия Костадинова</i>
+									<br>
+									<b>Тел. номер:</b>
+									<i>0884621822</i>
+									<br>
+									<b>Описание:</b>
+									<i>Намерено протмоне на Южния плаж днес сутринта.</i>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="wrap animate pop">
+							<div class="overlay">
+								<div class="overlay-content animate slide-left delay-2">
+									<p class="animate slide-left pop delay-5" style="color: white; margin-bottom: 2.5rem;"></p>
+								</div>
+			
+								<img src="img/walletHand.jpg" class="find-picture animate slide delay-5" />
+								<div class="dots animate">
+									<div class="dot animate slide-up delay-6"></div>
+									<div class="dot animate slide-up delay-7"></div>
+									<div class="dot animate slide-up delay-8"></div>
+								</div>
+							</div>
+							<div class="text">
+								<p>
+									<b>Име:</b>
+									<i>Марин Маринов</i>
+									<br>
+									<b>Тел. номер:</b>
+									<i>0889674095</i>
+									<br>
+									<b>Описание:</b>
+									<i>Открит портфейл днес по обяд в кафене Ендорфино на Севастопол. Портфейлът ще бъде оставен на персонала.</i>
+								</p>
+							</div>
+						</div>
+					</div>					
+				</div> 
+			</div><!-- end page 2 content -->
+			
+			<div data-role="footer" data-position="fixed" style="background-color: #665A46; color: white;">
+				<h1>Намерени</h1>
+			</div><!-- /footer -->
+		</div><!-- /page2 -->
+		
+				<!-- page 3 -->
+		<div data-role="page" id="page3" style="background-color: #e5ca9f;">
+			<div data-role="header">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#page1" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-home" style="background-color: #665A46; color: white;">Начало</a></li>
+						<li><a href="#page2" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-check" style="background-color: #665A46; color: white;">Намерени</a></li>
+						<li><a href="#page3" class="ui-btn-active ui-state-persist ui-btn ui-corner-all ui-btn-icon-left ui-icon-search">Изгубени</a></li>
+						<li><a href="#page4" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-plus" style="background-color: #665A46; color: white;">Добави</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div>
+			
+			<div class="ui-content">
+				<div id="pages3">
+
+					<div>
+						<div class="wrap animate pop">
+							<div class="overlay">
+								<div class="overlay-content animate slide-left delay-2">
+									<p class="animate slide-left pop delay-5" style="color: white; margin-bottom: 2.5rem;"></p>
+								</div>
+			
+								<img src="img/card.jpg" class="find-picture animate slide delay-5" />
+								<div class="dots animate">
+									<div class="dot animate slide-up delay-6"></div>
+									<div class="dot animate slide-up delay-7"></div>
+									<div class="dot animate slide-up delay-8"></div>
+								</div>
+							</div>
+							<div class="text">
+								<p>
+									<b>Име:</b>
+									<i>Николай Николов</i>
+									<br>
+									<b>Тел. номер:</b>
+									<i>0878645231</i>
+									<br>
+									<b>Описание:</b>
+									<i>Изгубена кредитна карта на Николай Николов около пазар "Чаталджа".</i>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="wrap animate pop">
+							<div class="overlay">
+								<div class="overlay-content animate slide-left delay-2">
+									<p class="animate slide-left pop delay-5" style="color: white; margin-bottom: 2.5rem;"></p>
+								</div>
+			
+								<img src="img/dog.jpg" class="find-picture animate slide delay-5" />
+								<div class="dots animate">
+									<div class="dot animate slide-up delay-6"></div>
+									<div class="dot animate slide-up delay-7"></div>
+									<div class="dot animate slide-up delay-8"></div>
+								</div>
+							</div>
+							<div class="text">
+								<p>
+									<b>Име:</b>
+									<i>Ивана Спасова</i>
+									<br>
+									<b>Тел. номер:</b>
+									<i>0896452137</i>
+									<br>
+									<b>Описание:</b>
+									<i>Изгубено в Морската градина. Отговаря на името Алекс.</i>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="wrap animate pop">
+							<div class="overlay">
+								<div class="overlay-content animate slide-left delay-2">
+									<p class="animate slide-left pop delay-5" style="color: white; margin-bottom: 2.5rem;"></p>
+								</div>
+			
+								<img src="img/jack.jpg" class="find-picture animate slide delay-5" />
+								<div class="dots animate">
+									<div class="dot animate slide-up delay-6"></div>
+									<div class="dot animate slide-up delay-7"></div>
+									<div class="dot animate slide-up delay-8"></div>
+								</div>
+							</div>
+							<div class="text">
+								<p>
+									<b>Име:</b>
+									<i>Стефан Стоев</i>
+									<br>
+									<b>Тел. номер:</b>
+									<i>0886415237</i>
+									<br>
+									<b>Описание:</b>
+									<i>Изгубен джак ръсел около Катедралата. Отговаря на името Арчи.</i>
+								</p>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div class="wrap animate pop">
+							<div class="overlay">
+								<div class="overlay-content animate slide-left delay-2">
+									<p class="animate slide-left pop delay-5" style="color: white; margin-bottom: 2.5rem;"></p>
+								</div>
+			
+								<img src="img/keys1.jpg" class="find-picture animate slide delay-5" />
+								<div class="dots animate">
+									<div class="dot animate slide-up delay-6"></div>
+									<div class="dot animate slide-up delay-7"></div>
+									<div class="dot animate slide-up delay-8"></div>
+								</div>
+							</div>
+							<div class="text">
+								<p>
+									<b>Име:</b>
+									<i>Мартин Костадинов</i>
+									<br>
+									<b>Тел. номер:</b>
+									<i>0897415634</i>
+									<br>
+									<b>Описание:</b>
+									<i>Изгубени ключове по обяд около Морското</i>
+								</p>
+							</div>
+						</div>
+					</div>			 
+				</div>
+			</div><!-- end page 3 content -->
+
+			<div data-role="footer" data-position="fixed" style="background-color: #665A46; color: white;">
+				<h1>Изгубени</h1>
+			</div><!-- /footer -->
+		</div><!-- /page3 -->
+
+			<!-- page 4 -->
+		<div data-role="page" id="page4" style="background-color: #e5ca9f;">
+			<div data-role="header">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#page1" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-home" style="background-color: #665A46; color: white;">Начало</a></li>
+						<li><a href="#page2" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-check" style="background-color: #665A46; color: white;">Намерени</a></li>
+						<li><a href="#page3" class="ui-btn ui-corner-all ui-btn-icon-left ui-icon-search" style="background-color: #665A46; color: white;">Изгубени</a></li>
+						<li><a href="#page4" class="ui-btn-active ui-state-persist ui-btn ui-corner-all ui-btn-icon-left ui-icon-plus">Добави</a></li>
+					</ul>
+				</div><!-- /navbar -->
+			</div>
+			
+			<div class="ui-content" id="form">
+				<section class="forms-section">
+
+					<div class="forms">
+					  <div class="form-wrapper is-active">
+						<button type="button" class="switcher switcher-login">
+						  Намерени
+						  <span class="underline"></span>
+						</button>
+						
+						<form class="form form-login">
+						  <fieldset>
+							<div class="input-block">
+							  <label for="findName">Име:</label>
+							  <input id="findName" type="text" required>
+							</div>
+							<div class="input-block">
+							  <label for="findNumber">Тел. номер:</label>
+							  <input id="findNumber" type="text" required>
+							</div>
+							<div class="input-block">
+								<label for="findStory">Описание:</label>
+								<textarea id="findStory" cols="30" rows="20" name="story"></textarea>
+							</div>
+							<button id="camera-btn" data-role="button" data-icon="camera">
+								Качи снимка
+							</button>
+							<img src="#" alt="text" id="myImage" class="not-displayed" style="width: 50%; height: 50%;">
+						  </fieldset>
+						  <button type="submit" id="find" class="btn-login">Добави</button>
+						</form>
+					  </div>
+
+
+					  <div class="form-wrapper">
+						<button type="button" class="switcher switcher-signup">
+						  Изгубени
+						  <span class="underline"></span>
+						</button>
+						<form class="form form-signup">
+						  <fieldset>
+							<div class="input-block">
+							  <label for="lostName">Име:</label>
+							  <input id="lostName" type="text" required>
+							</div>
+							<div class="input-block">
+							  <label for="lostNumber">Тел. номер:</label>
+							  <input id="lostNumber" type="text" required>
+							</div>
+							<div class="input-block">
+								<label for="lostStory">Описание:</label>
+								<textarea id="lostStory" class="story" cols="30" rows="20" name="story"></textarea>
+							</div>
+							<button id="camera-btn2" data-role="button" data-icon="camera">
+								Качи снимка
+							</button>
+							<img src="#" alt="text" id="myImage2" class="not-displayed" style="width: 50%; height: 50%;">
+						  </fieldset>
+						  <button type="submit" id="lost" class="btn-signup">Добави</button>
+						</form>
+					  </div>
+					</div>
+				  </section>
+			</div><!-- end page 4 content -->
+			
+			<div data-role="footer" data-position="fixed" style="background-color: #665A46; color: white;">
+				<h1>Добави</h1>
+			</div><!-- /footer -->
+		</div>
+		<!-- /page4 -->		
+
+<script src="cordova.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js" id="cordova-jquery"></script>
+<script type="text/javascript" id="jqm-trans-disable">
+		/* For having a faster transition */
+		$(document).on("mobileinit", function() {
+				$.mobile.defaultPageTransition = "none";
+				$.mobile.defaultDialogTransition = "none";
+		});
+		</script>
+		<script type="text/javascript" src="js/jquery-1.5.0.mobile.min.js"></script>
+		<script src="js/index.js"></script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
